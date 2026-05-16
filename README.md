@@ -12,19 +12,19 @@ Three pre-built scenarios are included; the simulator is config-driven
 Each body's acceleration comes from Newton's law of universal gravitation
 summed over every other body:
 
-  a_i = sum_j G * m_j * (r_j - r_i) / (|r_j - r_i|^2 + epsilon^2)^(3/2)
+$$\vec{a}_i \;=\; \sum_{j \neq i} G \, m_j \, \frac{\vec{r}_j - \vec{r}_i}{\left( \left| \vec{r}_j - \vec{r}_i \right|^2 + \epsilon^2 \right)^{3/2}}$$
 
-Plummer softening (`epsilon`) is optional — set to 0 for the solar system,
+Plummer softening ($\epsilon$) is optional — set to 0 for the solar system,
 non-zero only if you want to guard against pathological near-collisions.
 
-Internal units: AU, solar masses, years. In these units G = 4*pi^2, which
-follows from Earth (≈ 0 mass at 1 AU) orbiting the Sun (1 M_sun) once per
-year at v = 2*pi AU/yr.
+Internal units: AU, solar masses, years. In these units $G = 4\pi^2$, which
+follows from Earth ($\approx 0$ mass at $1$ AU) orbiting the Sun ($1\,M_\odot$)
+once per year at $v = 2\pi$ AU/yr.
 
-The integrator is fixed-step RK4 with O(dt^4) global accuracy. It is not
-symplectic, so total energy drifts slowly, but on the order of 10^-9 over
-a five-year solar-system simulation. The `energy.png` diagnostic plots
-this directly.
+The integrator is fixed-step RK4 with $\mathcal{O}(\Delta t^4)$ global accuracy.
+It is not symplectic, so total energy drifts slowly, but on the order of
+$10^{-9}$ over a five-year solar-system simulation. The `energy.png` diagnostic
+plots this directly.
 
 ## Build
 
@@ -127,14 +127,14 @@ nbody/
 Drop a new JSON file in `scenarios/`. Required keys: `name`, `dt`,
 `total_time`, `output_dt`, and a non-empty `bodies` array. Each body
 needs `name`, `mass`, `position` (array of 3), `velocity` (array of 3).
-Optional top-level keys: `G` (defaults to 4*pi^2), `epsilon` (defaults
+Optional top-level keys: `G` (defaults to $4\pi^2$), `epsilon` (defaults
 to 0). See the existing scenario files for examples.
 
 ## Validating that it works
 
 A throwaway sanity-check is included in `test_orbit.cpp`. It simulates
 Earth orbiting the Sun for one year and reports the final position error
-(expected ~10^-5 AU) and energy drift (expected ~10^-12). To run:
+(expected $\sim 10^{-5}$ AU) and energy drift (expected $\sim 10^{-12}$). To run:
 
 ```
 g++ -std=c++17 -O2 -Isrc test_orbit.cpp src/System.cpp src/Integrator.cpp -o test_orbit
