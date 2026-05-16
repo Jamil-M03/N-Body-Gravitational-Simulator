@@ -1,0 +1,14 @@
+{
+  "name": "Inner Solar System",
+  "_comment": "Sun + 4 inner planets at circular-orbit approximations. Masses in M_sun, distances in AU, velocities in AU/yr. Circular speed: v = 2*pi/sqrt(r).",
+  "dt": 0.001,
+  "total_time": 5.0,
+  "output_dt": 0.01,
+  "bodies": [
+    { "name": "Sun",     "mass": 1.0,      "position": [0.000, 0, 0], "velocity": [0,  0.000000, 0] },
+    { "name": "Mercury", "mass": 1.65e-7,  "position": [0.387, 0, 0], "velocity": [0, 10.099786, 0] },
+    { "name": "Venus",   "mass": 2.45e-6,  "position": [0.723, 0, 0], "velocity": [0,  7.388385, 0] },
+    { "name": "Earth",   "mass": 3.003e-6, "position": [1.000, 0, 0], "velocity": [0,  6.283185, 0] },
+    { "name": "Mars",    "mass": 3.227e-7, "position": [1.524, 0, 0], "velocity": [0,  5.089170, 0] }
+  ]
+}

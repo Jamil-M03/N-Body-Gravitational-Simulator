@@ -1,0 +1,13 @@
+{
+  "name": "Three-Body Figure-8 (Chenciner & Montgomery 2000)",
+  "_comment": "Three equal masses chase each other along a figure-8 path. Initial conditions are in natural units (G=1, m=1, period~6.32). Override G accordingly.",
+  "G": 1.0,
+  "dt": 0.0005,
+  "total_time": 12.65,
+  "output_dt": 0.02,
+  "bodies": [
+    { "name": "A", "mass": 1.0, "position": [-0.97000436,  0.24308753, 0], "velocity": [ 0.466203685,  0.43236573, 0] },
+    { "name": "B", "mass": 1.0, "position": [ 0.97000436, -0.24308753, 0], "velocity": [ 0.466203685,  0.43236573, 0] },
+    { "name": "C", "mass": 1.0, "position": [ 0.0,         0.0,        0], "velocity": [-0.93240737,  -0.86473146, 0] }
+  ]
+}

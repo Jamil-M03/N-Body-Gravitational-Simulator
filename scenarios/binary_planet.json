@@ -1,0 +1,12 @@
+{
+  "name": "Binary Star + Circumbinary Planet",
+  "_comment": "Two equal-mass stars 1 AU apart, with a small planet at 5 AU. Binary period ~0.71 yr, planet period ~7.9 yr. Star v = pi*sqrt(2); planet v = 2*pi*sqrt(2/5).",
+  "dt": 0.001,
+  "total_time": 20.0,
+  "output_dt": 0.05,
+  "bodies": [
+    { "name": "Star A", "mass": 1.0,    "position": [ 0.5, 0, 0], "velocity": [0,  4.442883, 0] },
+    { "name": "Star B", "mass": 1.0,    "position": [-0.5, 0, 0], "velocity": [0, -4.442883, 0] },
+    { "name": "Planet", "mass": 3.0e-6, "position": [ 5.0, 0, 0], "velocity": [0,  3.972754, 0] }
+  ]
+}

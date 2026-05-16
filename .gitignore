@@ -1,0 +1,27 @@
+# Compiled object files and binaries
+*.o
+*.obj
+nbody
+nbody.exe
+test_orbit
+test_orbit.exe
+
+# CMake build directory
+build/
+out/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE / editor metadata
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Simulation outputs (re-generate by running the sim)
+# Comment out the next line if you want to commit your generated artifacts.
+# output/
