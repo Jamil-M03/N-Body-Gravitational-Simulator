@@ -1,7 +1,7 @@
 #include "Config.hpp"
 
-#include <cmath>
 #include <fstream>
+#include <numbers>
 #include <stdexcept>
 #include <nlohmann/json.hpp>
 
@@ -36,7 +36,9 @@ Scenario load_scenario(const std::string& path) {
     s.params.output_dt  = j.at("output_dt").get<double>();
 
     // Optional: G (defaults to 4*pi^2 in AU/M_sun/yr) and epsilon (0)
-    s.system.G       = j.value("G",       4.0 * M_PI * M_PI);
+    // Default G = 4*pi^2 in AU^3 / (M_sun * yr^2). std::numbers::pi
+    // requires C++20.
+    s.system.G       = j.value("G",       4.0 * std::numbers::pi * std::numbers::pi);
     s.system.epsilon = j.value("epsilon", 0.0);
 
     // Required: bodies array

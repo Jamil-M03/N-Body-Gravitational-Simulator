@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.15)
 project(nbody CXX)
 
 # --- Language standard ---
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)  # use -std=c++17, not -std=gnu++17
+set(CMAKE_CXX_EXTENSIONS OFF)  # use -std=c++20, not -std=gnu++20
 
 # --- Default to Release if no build type was specified ---
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)

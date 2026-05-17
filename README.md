@@ -7,6 +7,22 @@ animated MP4/GIFs of the resulting trajectories.
 Three pre-built scenarios are included; the simulator is config-driven
 (JSON), so adding new ones is just a new file.
 
+**Platforms:** Linux · macOS · Windows (validated on Ubuntu 24.04 and
+Windows 11 with MSYS2 / MinGW-w64).
+
+<p align="center">
+  <img src="docs/preview/three_body.gif" alt="Chenciner-Montgomery figure-8 three-body orbit" width="480"/>
+</p>
+
+## Gallery
+
+| Solar System | Figure-8 Three-Body | Binary + Planet |
+|:---:|:---:|:---:|
+| <img src="docs/preview/solar.gif" width="260"/> | <img src="docs/preview/three_body.gif" width="260"/> | <img src="docs/preview/binary.gif" width="260"/> |
+| 5 bodies, 5 years | 3 bodies, 12.65 years | 3 bodies, 20 years |
+| ΔE/E ≈ 2.7×10⁻⁹ | ΔE/E ≈ 1.2×10⁻¹⁴ | ΔE/E ≈ 2.7×10⁻¹⁰ |
+| [full MP4](output/solar/animation.mp4) | [full MP4](output/three_body/animation.mp4) | [full MP4](output/binary/animation.mp4) |
+
 ## Physics
 
 Each body's acceleration comes from Newton's law of universal gravitation
@@ -39,7 +55,7 @@ make
 
 Auto-fetches `nlohmann/json.hpp` on first build if it's missing.
 
-Requires: g++ with C++17, GNU make, curl OR git.
+Requires: g++ with C++20, GNU make, curl OR git.
 
 ### Option B: CMake (cross-platform; recommended on Windows)
 
@@ -54,12 +70,12 @@ Open → CMake...`). VS Code with the CMake Tools extension also works.
 
 CMake also auto-fetches `json.hpp` on configure if it's missing.
 
-Requires: CMake ≥ 3.15 plus a C++17 compiler (g++, clang++, or MSVC).
+Requires: CMake ≥ 3.15 plus a C++20 compiler (g++, clang++, or MSVC).
 
 ### Option C: One-liner (no build system at all)
 
 ```
-g++ -std=c++17 -O2 -Isrc -Ithird_party src/*.cpp -o nbody
+g++ -std=c++20 -O2 -Isrc -Ithird_party src/*.cpp -o nbody
 ```
 
 ## Run
@@ -119,6 +135,7 @@ nbody/
 │   ├── velocity.py             velocity quiver field
 │   ├── energy.py               energy drift over time
 │   └── animation.py            animated MP4/GIF with fading trails
+├── docs/preview/               small GIFs used in this README
 └── third_party/nlohmann/json.hpp
 ```
 
@@ -137,6 +154,20 @@ Earth orbiting the Sun for one year and reports the final position error
 (expected $\sim 10^{-5}$ AU) and energy drift (expected $\sim 10^{-12}$). To run:
 
 ```
-g++ -std=c++17 -O2 -Isrc test_orbit.cpp src/System.cpp src/Integrator.cpp -o test_orbit
+g++ -std=c++20 -O2 -Isrc test_orbit.cpp src/System.cpp src/Integrator.cpp -o test_orbit
 ./test_orbit
 ```
+
+## Regenerating the README preview GIFs
+
+The previews in `docs/preview/` are small (~500 KB each) so they render
+inline on GitHub. To regenerate them after changing a scenario:
+
+```
+ffmpeg -y -i output/solar/animation.mp4 \
+  -vf "fps=12,scale=420:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=128[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5" \
+  -loop 0 docs/preview/solar.gif
+```
+
+(Repeat for `three_body` and `binary`.) The split/palettegen/paletteuse
+trick gives much smaller, cleaner GIFs than a naive conversion.

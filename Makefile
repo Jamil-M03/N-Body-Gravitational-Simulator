@@ -1,5 +1,5 @@
 CXX      := g++
-CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -Isrc -Ithird_party
+CXXFLAGS := -std=c++20 -O2 -Wall -Wextra -Isrc -Ithird_party
 SRC      := $(wildcard src/*.cpp)
 OBJ      := $(SRC:.cpp=.o)
 TARGET   := nbody
