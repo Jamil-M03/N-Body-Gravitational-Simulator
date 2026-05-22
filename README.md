@@ -188,10 +188,6 @@ trick gives much smaller, cleaner GIFs than a naive conversion.
 
 **MIT** — see [`LICENSE`](./LICENSE).
 
-## License
-
-**MIT** — see [`LICENSE`](./LICENSE).
-
 You're free to view, fork, modify, and use this code for any purpose,
 including commercial — just keep the copyright notice and license text
 from the [`LICENSE`](./LICENSE) file in any copies or derivatives. If you
