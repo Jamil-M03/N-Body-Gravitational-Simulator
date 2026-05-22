@@ -188,7 +188,16 @@ trick gives much smaller, cleaner GIFs than a naive conversion.
 
 **MIT** — see [`LICENSE`](./LICENSE).
 
-You are free to view, fork, modify, and use this code for any purpose,
-including commercial. Attribution is appreciated but not required. If you
-build something interesting on top of it, I'd love to hear about it via my
-[GitHub profile](https://github.com/Jamil-M03).
+## License
+
+**MIT** — see [`LICENSE`](./LICENSE).
+
+You're free to view, fork, modify, and use this code for any purpose,
+including commercial — just keep the copyright notice and license text
+from the [`LICENSE`](./LICENSE) file in any copies or derivatives. If you
+build something interesting on top of it, I'd love to hear about it via
+my [GitHub profile](https://github.com/Jamil-M03).
+
+---
+
+© 2026 Jamil M. Licensed under MIT.
