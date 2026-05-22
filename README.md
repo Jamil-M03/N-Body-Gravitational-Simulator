@@ -88,12 +88,16 @@ g++ -std=c++20 -O2 -Isrc -Ithird_party src/*.cpp -o nbody
 
 Writes `trajectory.csv` and `energy.csv` to the output directory.
 
+> **Windows (PowerShell):** the binary is `.\build\nbody.exe` (or
+> `.\build\Release\nbody.exe` if you built with Visual Studio). Use
+> backslashes in paths.
+
 ## Visualize
 
 ```
 python3 -m viz output/solar      --title "Inner Solar System"
 python3 -m viz output/three_body --title "Chenciner & Montgomery Figure-8"
-python3 -m viz output/binary     --title "Binary Star + Circumbinary Planet"
+python3 -m viz output/binary     --title "Circumbinary Planet System"
 ```
 
 Outputs in the same directory:
@@ -110,6 +114,10 @@ CLI options:
 - `--trail N`   length of fading trail in frames (default 120)
 
 Requires: matplotlib, pandas, pillow. For MP4: ffmpeg on PATH.
+
+> **Windows:** use `python` instead of `python3` — the standard installer
+> only registers `python.exe`, and `python3` triggers the Microsoft Store
+> install prompt.
 
 ## Project layout
 
