@@ -16,7 +16,7 @@ Windows 11 with MSYS2 / MinGW-w64).
 
 ## Gallery
 
-| Solar System | Figure-8 Three-Body | Binary + Planet |
+| Inner Solar System | Chenciner & Montgomery Figure-8 | Circumbinary Planet System |
 |:---:|:---:|:---:|
 | <img src="docs/preview/solar.gif" width="260"/> | <img src="docs/preview/three_body.gif" width="260"/> | <img src="docs/preview/binary.gif" width="260"/> |
 | 5 bodies, 5 years | 3 bodies, 12.65 years | 3 bodies, 20 years |
