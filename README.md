@@ -91,7 +91,9 @@ Writes `trajectory.csv` and `energy.csv` to the output directory.
 ## Visualize
 
 ```
-python3 -m viz output/solar --title "Inner Solar System"
+python3 -m viz output/solar      --title "Inner Solar System"
+python3 -m viz output/three_body --title "Chenciner & Montgomery Figure-8"
+python3 -m viz output/binary     --title "Binary Star + Circumbinary Planet"
 ```
 
 Outputs in the same directory:
@@ -171,3 +173,14 @@ ffmpeg -y -i output/solar/animation.mp4 \
 
 (Repeat for `three_body` and `binary`.) The split/palettegen/paletteuse
 trick gives much smaller, cleaner GIFs than a naive conversion.
+
+---
+
+## License
+
+**MIT** — see [`LICENSE`](./LICENSE).
+
+You are free to view, fork, modify, and use this code for any purpose,
+including commercial. Attribution is appreciated but not required. If you
+build something interesting on top of it, I'd love to hear about it via my
+[GitHub profile](https://github.com/Jamil-M03).
